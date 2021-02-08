@@ -9,7 +9,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -26,15 +25,14 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" remember the cursor in closed files
+augroup resCur
+  autocmd!
+  autocmd BufReadPost * call setpos(".", getpos("'\""))
+augroup END
+
+" just set background
 set background=dark
-" If you use TedVim for default Terminal in *UNIX system
-" and was setting custom color in Terminal like solarized
-" you must have this setting to tell Terminal you want to use Solarized.vim
-" not the Terminal custom color
-" Depend: Terminal must supports 256 colors
-" Test passed: macOS Terminal(10.15.7)
-let g:solarized_termcolors=256
-colorscheme solarized
 
 " enable syntax and detect language syntax
 syntax enable
@@ -45,11 +43,15 @@ set autoread
 " use utf-8 for most environment
 set encoding=utf-8
 
+" auto save files in unix style
+set ff=unix
+
 " always show status bar, option: 1
 set laststatus=2
 
 " show number and ruler for locate code
-set number
+set nonumber
+" set number
 set ruler
 
 " replace all tabs with spaces
