@@ -1,16 +1,12 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" TedVim - Cleaner vim configure for DevOps developer
+" Update: Fri Feb 19 2021
+" Author: liyangxia
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Turn off VI compatibility mode
+set nocompatible
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" Turn on file type detection
+filetype indent on
 
 " remember the cursor in closed files
 augroup resCur
@@ -38,7 +34,8 @@ set laststatus=2
 
 " show number and ruler for locate code
 set nonumber
-" set number
+
+" Show cursor position
 set ruler
 
 " replace all tabs with spaces
@@ -47,15 +44,23 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+" Show command
 set showcmd
 
+" Tighten to follow
 set autoindent
-set cindent
 
+" Set history length
 set history=1000
 
+" Highlight search results
 set hlsearch
+
+" Automatically jump to results when searching
 set incsearch
 
+" Do not create a backup file
 set nobackup
+
+" Do not create a swap file
 set noswapfile
